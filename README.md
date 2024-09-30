@@ -46,7 +46,7 @@ files.upload()
 ```
 
 ```plaintext
-{'kaggle.json': b'{"username":"john_appleseed","key":"API_key"}'}
+>>> {'kaggle.json': b'{"username":"john_appleseed","key":"API_key"}'}
 ```
 
 We now install the Kaggle library on Colab
@@ -75,9 +75,9 @@ download and unzip the Combined Dataset
 ```
 
 ```plaintext
-Downloading human-ai-artwork.zip to /content
-100% 62.4G/62.4G [49:31<00:00, 29.6MB/s]
-100% 62.4G/62.4G [49:31<00:00, 22.6MB/s]
+>>> Downloading human-ai-artwork.zip to /content
+>>> 100% 62.4G/62.4G [49:31<00:00, 29.6MB/s]
+>>> 100% 62.4G/62.4G [49:31<00:00, 22.6MB/s]
 ```
 
 ``` python
@@ -86,17 +86,17 @@ Downloading human-ai-artwork.zip to /content
 ```
 
 ```plaintext
-Streaming output truncated to the last 10 lines.
-  inflating: data/data/Human_Ukiyo_e/utagawa-toyokuni_nakamura-nosio-the-second-performs-the-dance-dodzedzi-1796.jpg  
-  inflating: data/data/Human_Ukiyo_e/utagawa-toyokuni_nakamura-utaemon-1.jpg  
-  inflating: data/data/Human_Ukiyo_e/utagawa-toyokuni_nakamura-utaemon.jpg  
-  inflating: data/data/Human_Ukiyo_e/utagawa-toyokuni_segawa-kikunojo-iii-and-bando-mitsugoro-ii-1798.jpg  
-  inflating: data/data/Human_Ukiyo_e/utagawa-toyokuni_seki-sanjuro.jpg  
-  inflating: data/data/Human_Ukiyo_e/utagawa-toyokuni_the-actor-otani-monzo-in-the-role-of-igarashi-tenzen.jpg  
-  inflating: data/data/Human_Ukiyo_e/utagawa-toyokuni_the-heian-courtier.jpg  
-  inflating: data/data/Human_Ukiyo_e/utagawa-toyokuni_the-promenade.jpg  
-  inflating: data/data/Human_Ukiyo_e/utagawa-toyokuni_three-beauties-playing-battledore-and-shuttlecock.jpg  
-  inflating: data/data/Human_Ukiyo_e/utagawa-toyokuni_three-beauties-snow.jpg  
+>>> Streaming output truncated to the last 10 lines.
+      inflating: data/data/Human_Ukiyo_e/utagawa-toyokuni_nakamura-nosio-the-second-performs-the-dance-dodzedzi-1796.jpg  
+      inflating: data/data/Human_Ukiyo_e/utagawa-toyokuni_nakamura-utaemon-1.jpg  
+      inflating: data/data/Human_Ukiyo_e/utagawa-toyokuni_nakamura-utaemon.jpg  
+      inflating: data/data/Human_Ukiyo_e/utagawa-toyokuni_segawa-kikunojo-iii-and-bando-mitsugoro-ii-1798.jpg  
+      inflating: data/data/Human_Ukiyo_e/utagawa-toyokuni_seki-sanjuro.jpg  
+      inflating: data/data/Human_Ukiyo_e/utagawa-toyokuni_the-actor-otani-monzo-in-the-role-of-igarashi-tenzen.jpg  
+      inflating: data/data/Human_Ukiyo_e/utagawa-toyokuni_the-heian-courtier.jpg  
+      inflating: data/data/Human_Ukiyo_e/utagawa-toyokuni_the-promenade.jpg  
+      inflating: data/data/Human_Ukiyo_e/utagawa-toyokuni_three-beauties-playing-battledore-and-shuttlecock.jpg  
+      inflating: data/data/Human_Ukiyo_e/utagawa-toyokuni_three-beauties-snow.jpg  
 ```
 
 ``` python
@@ -135,8 +135,8 @@ train_ds = tf.keras.utils.image_dataset_from_directory(
 )
 ```
 ```plaintext
-Found 271993 files belonging to 52 classes.
-Using 163196 files for training.
+>>> Found 271993 files belonging to 52 classes.
+>>> Using 163196 files for training.
 ```
 ``` python
 val_test_ds = tf.keras.utils.image_dataset_from_directory(
@@ -149,8 +149,8 @@ val_test_ds = tf.keras.utils.image_dataset_from_directory(
 ```
 
 ```plaintext
-Found 271993 files belonging to 52 classes.
-Using 108797 files for validation.
+>>> Found 271993 files belonging to 52 classes.
+>>> Using 108797 files for validation.
 ```
 
 We split the original validation set in half in order to generate our test set
@@ -197,9 +197,9 @@ print(labels_batch)
 ```
 
 ```plaintext
-(32, 256, 256, 3)
-(32,)
-tf.Tensor([1 1 0 1 1 1 1 1 1 1 1 0 1 1 1 1 1 1 1 1 1 0 1 1 0 0 1 1 1 1 1 0], shape=(32,), dtype=int32)
+>>> (32, 256, 256, 3)
+>>> (32,)
+>>> tf.Tensor([1 1 0 1 1 1 1 1 1 1 1 0 1 1 1 1 1 1 1 1 1 0 1 1 0 0 1 1 1 1 1 0], shape=(32,), dtype=int32)
 ```
 
 ``` python
@@ -256,8 +256,8 @@ for image_batch, labels_batch in train_ds:
 ```
 
 ```plaintext
-(32, 256, 256, 3)
-(32,)
+>>> (32, 256, 256, 3)
+>>> (32,)
 ```
 
 ``` python
@@ -466,7 +466,7 @@ model, evals, history = train_model_pipeline(example_model)
 ```
 
 ```plaintext
-Now training example_model
+>>> Now training example_model
 Epoch 1/3
 5100/5100 [==============================] - 2041s 397ms/step
 loss: 0.4293 - accuracy: 0.8015 - cross entropy: 0.4293 - MSE: 0.1383 - tp: 102780.0000 - fp: 20651.0000 - tn: 28014.0000 - fn: 11751.0000 - precision: 0.8327 - recall: 0.8974 - roc: 0.8561 - prc: 0.9319 - val_loss: 0.3469 - val_accuracy: 0.8475 - val_cross entropy: 0.3469 - val_MSE: 0.1087 - val_tp: 34149.0000 - val_fp: 4367.0000 - val_tn: 11954.0000 - val_fn: 3930.0000 - val_precision: 0.8866 - val_recall: 0.8968 - val_roc: 0.9125 - val_prc: 0.9597
@@ -479,20 +479,20 @@ Epoch 3/3
 5100/5100 [==============================] - 2034s 399ms/step
 loss: 0.1880 - accuracy: 0.9273 - cross entropy: 0.1880 - MSE: 0.0544 - tp: 109407.0000 - fp: 6740.0000 - tn: 41925.0000 - fn: 5124.0000 - precision: 0.9420 - recall: 0.9553 - roc: 0.9735 - prc: 0.9877 - val_loss: 0.1731 - val_accuracy: 0.9331 - val_cross entropy: 0.1731 - val_MSE: 0.0496 - val_tp: 37105.0000 - val_fp: 2668.0000 - val_tn: 13658.0000 - val_fn: 969.0000 - val_precision: 0.9329 - val_recall: 0.9745 - val_roc: 0.9800 - val_prc: 0.9900
 
-Saving data for example_model_history
-Data saved.
+>>> Saving data for example_model_history
+>>> Data saved.
 
-Saving example_model.keras
-example_model.keras saved successfully.
+>>> Saving example_model.keras
+>>> example_model.keras saved successfully.
 
 Evaluation 1/1
 1700/1700 [==============================] - 850s 273ms/step
 loss: 0.1693 - accuracy: 0.9351 - cross entropy: 0.1693 - MSE: 0.0485 - tp: 37022.0000 - fp: 2613.0000 - tn: 13844.0000 - fn: 918.0000 - precision: 0.9341 - recall: 0.9758 - roc: 0.9811 - prc: 0.9907
 
-Saving data for example_model_evals
-Data saved.
+>>> Saving data for example_model_evals
+>>> Data saved.
 
-Training complete in 115.34 minutes
+>>> Training complete in 115.34 minutes
 ```
 
 
@@ -631,7 +631,7 @@ attention_ds = tf.keras.utils.image_dataset_from_directory(
 ```
 
 ```plaintext
-Found 4 files belonging to 1 classes.
+>>> Found 4 files belonging to 1 classes.
 ```
 
 ``` python
@@ -644,9 +644,9 @@ for image_batch, labels_batch in attention_ds:
 ```
 
 ```plaintext
-(4, 256, 256, 3)
-(4,)
-tf.Tensor(0, shape=(), dtype=int32)
+>>> (4, 256, 256, 3)
+>>> (4,)
+>>> tf.Tensor(0, shape=(), dtype=int32)
 ```
 
 
@@ -963,9 +963,9 @@ print(labels_batch)
 ```
 
 ```plaintext
-(32, 256, 256, 3)
-(32,)
-tf.Tensor([1 1 0 1 1 1 1 1 1 1 1 0 1 1 1 1 1 1 1 1 1 0 1 1 0 0 1 1 1 1 1 0], shape=(32,), dtype=int32)
+>>> (32, 256, 256, 3)
+>>> (32,)
+>>> tf.Tensor([1 1 0 1 1 1 1 1 1 1 1 0 1 1 1 1 1 1 1 1 1 0 1 1 0 0 1 1 1 1 1 0], shape=(32,), dtype=int32)
 ```
 
 # Appendix B: Model Definitions
